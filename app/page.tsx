@@ -17,16 +17,6 @@ export default function Dashboard() {
           </div>
           <div className="flex items-center gap-3">
             <span className="text-xs" style={{ color: "#475569" }}>Mock data — 2024</span>
-            <a
-              href="https://github.com/itanvirt/demo-analytics-dashboard"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors"
-              style={{ background: "var(--surface-2)", color: "#94a3b8", border: "1px solid var(--border)" }}
-            >
-              <ExternalLink size={13} />
-              Source
-            </a>
           </div>
         </div>
       </header>
@@ -169,8 +159,7 @@ export default function Dashboard() {
           <p className="text-xs" style={{ color: "#334155" }}>
             Demo by{" "}
             <a href="https://tanviratuhin.com" style={{ color: "#7c3aed" }}>Tanvir Tuhin</a>
-            {" "}· All data is mock/seeded ·{" "}
-            <a href="https://github.com/itanvirt/demo-analytics-dashboard" style={{ color: "#7c3aed" }}>View source</a>
+            {" "}· All data is mock/seeded
           </p>
         </div>
       </main>
