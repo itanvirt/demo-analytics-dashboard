@@ -3,7 +3,7 @@
 import {
   AreaChart, Area, BarChart, Bar, PieChart, Pie, Cell,
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
-  ResponsiveContainer, Legend,
+  ResponsiveContainer,
 } from "recharts";
 
 const tooltipStyle = {
@@ -14,7 +14,14 @@ const tooltipStyle = {
   fontSize: "13px",
 };
 
-export function RevenueChart({ data }: { data: { month: string; revenue: number; orders: number }[] }) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const fmtRevenue = (v: any) => [`£${Number(v).toLocaleString()}`, "Revenue"];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const fmtPct = (v: any) => [`${v}%`, ""];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const fmtConv = (v: any) => [`${v}%`, "Conv. Rate"];
+
+export function RevenueChart({ data }: { data: { month: string; revenue: number }[] }) {
   return (
     <ResponsiveContainer width="100%" height={280}>
       <AreaChart data={data} margin={{ top: 5, right: 5, left: 0, bottom: 0 }}>
@@ -27,14 +34,14 @@ export function RevenueChart({ data }: { data: { month: string; revenue: number;
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
         <XAxis dataKey="month" tick={{ fill: "#64748b", fontSize: 12 }} axisLine={false} tickLine={false} />
         <YAxis tick={{ fill: "#64748b", fontSize: 12 }} axisLine={false} tickLine={false} tickFormatter={(v) => `£${(v / 1000).toFixed(0)}k`} />
-        <Tooltip contentStyle={tooltipStyle} formatter={(v: number) => [`£${v.toLocaleString()}`, "Revenue"]} />
+        <Tooltip contentStyle={tooltipStyle} formatter={fmtRevenue} />
         <Area type="monotone" dataKey="revenue" stroke="#8b5cf6" strokeWidth={2} fill="url(#revGrad)" />
       </AreaChart>
     </ResponsiveContainer>
   );
 }
 
-export function OrdersChart({ data }: { data: { month: string; orders: number; visitors: number }[] }) {
+export function OrdersChart({ data }: { data: { month: string; orders: number }[] }) {
   return (
     <ResponsiveContainer width="100%" height={280}>
       <BarChart data={data} margin={{ top: 5, right: 5, left: 0, bottom: 0 }}>
@@ -52,12 +59,21 @@ export function TrafficPieChart({ data }: { data: { name: string; value: number;
   return (
     <ResponsiveContainer width="100%" height={220}>
       <PieChart>
-        <Pie data={data} cx="50%" cy="50%" innerRadius={60} outerRadius={90} paddingAngle={3} dataKey="value">
+        <Pie
+          data={data}
+          cx="50%"
+          cy="50%"
+          innerRadius={60}
+          outerRadius={90}
+          paddingAngle={3}
+          dataKey="value"
+          stroke="none"
+        >
           {data.map((entry) => (
             <Cell key={entry.name} fill={entry.color} />
           ))}
         </Pie>
-        <Tooltip contentStyle={tooltipStyle} formatter={(v: number) => [`${v}%`, ""]} />
+        <Tooltip contentStyle={tooltipStyle} formatter={fmtPct} />
       </PieChart>
     </ResponsiveContainer>
   );
@@ -70,7 +86,7 @@ export function ConversionChart({ data }: { data: { week: string; rate: number }
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
         <XAxis dataKey="week" tick={{ fill: "#64748b", fontSize: 11 }} axisLine={false} tickLine={false} />
         <YAxis tick={{ fill: "#64748b", fontSize: 11 }} axisLine={false} tickLine={false} tickFormatter={(v) => `${v}%`} domain={[1.5, 4]} />
-        <Tooltip contentStyle={tooltipStyle} formatter={(v: number) => [`${v}%`, "Conv. Rate"]} />
+        <Tooltip contentStyle={tooltipStyle} formatter={fmtConv} />
         <Line type="monotone" dataKey="rate" stroke="#10b981" strokeWidth={2} dot={{ fill: "#10b981", r: 3 }} />
       </LineChart>
     </ResponsiveContainer>

@@ -1,4 +1,4 @@
-import { TrendingUp, TrendingDown, ShoppingCart, Users, Eye, Package, Github, Database, LayoutDashboard } from "lucide-react";
+import { TrendingUp, TrendingDown, ShoppingCart, Users, Eye, Package, ExternalLink, Database, LayoutDashboard } from "lucide-react";
 import { revenueData, trafficSources, conversionData, topPages, kpis } from "./data";
 import { RevenueChart, OrdersChart, TrafficPieChart, ConversionChart } from "./components/Charts";
 
@@ -24,7 +24,7 @@ export default function Dashboard() {
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors"
               style={{ background: "var(--surface-2)", color: "#94a3b8", border: "1px solid var(--border)" }}
             >
-              <Github size={13} />
+              <ExternalLink size={13} />
               Source
             </a>
           </div>
