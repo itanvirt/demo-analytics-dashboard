@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Analytics Dashboard Demo
 
-## Getting Started
+A multi-source analytics dashboard built with Next.js 15 + Recharts.
 
-First, run the development server:
+**Live demo:** https://demo-analytics-dashboard.vercel.app  
+**Portfolio:** https://tanviratuhin.com/portfolio/demo-analytics-dashboard
+
+## What this demonstrates
+
+- Unified view pulling from multiple data sources (GA4, Shopify, Postgres)
+- Server-side data fetching with Next.js App Router
+- Recharts for responsive, interactive data visualisation
+- Dark-themed dashboard UI — responsive from mobile to widescreen
+- KPI cards, area charts, bar charts, pie chart, line chart, and data tables
+
+## Tech stack
+
+- Next.js 15 (App Router)
+- Recharts
+- Tailwind CSS v4
+- TypeScript
+- Lucide React
+
+## Running locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+All data is seeded mock data. To connect real sources, implement API routes in `app/api/` and replace the imports in `app/page.tsx`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Built by
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[Tanvir Tuhin](https://tanviratuhin.com) — AI consultant & full-stack developer, Aberdeen UK.
